@@ -31,9 +31,8 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Lep"}, {:field, "o"}]},
-          %{parts: [{:text, "dekl"}, {:field, "e"}]},
-          %{parts: [{:text, " pride"}, {:field, ""}]},
-          {:text, "."}
+          %{parts: [{:text, "okn"}, {:field, "o"}]},
+          {:text, "imaš."}
         ])
       ),
       test(
