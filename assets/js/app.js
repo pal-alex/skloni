@@ -28,6 +28,17 @@ import topbar from "../vendor/topbar"
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const hooks = {
   ...colocatedHooks,
+  ScrollFeed: {
+    mounted() {
+      this.scrollToBottom()
+    },
+    updated() {
+      this.scrollToBottom()
+    },
+    scrollToBottom() {
+      this.el.scrollTop = this.el.scrollHeight
+    },
+  },
   CtrlEnterSubmit: {
     mounted() {
       this.keyHandler = event => {

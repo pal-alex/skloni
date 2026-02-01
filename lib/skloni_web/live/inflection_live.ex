@@ -42,7 +42,7 @@ defmodule SkloniWeb.InflectionLive do
       </header>
 
       <main class="chat">
-        <section class="feed" aria-live="polite">
+        <section id="feed" class="feed" aria-live="polite" phx-hook="ScrollFeed">
           <%= if Enum.empty?(@feed) do %>
             <div class="empty-state">
               <div class="empty-title">No attempts yet</div>
@@ -131,7 +131,7 @@ defmodule SkloniWeb.InflectionLive do
 
       socket =
         socket
-        |> assign(:feed, [feed_item | socket.assigns.feed])
+        |> assign(:feed, socket.assigns.feed ++ [feed_item])
         |> assign(:total, socket.assigns.total + 1)
         |> assign(:passed, socket.assigns.passed + if(correct?, do: 1, else: 0))
         |> assign(:test_index, next_index)

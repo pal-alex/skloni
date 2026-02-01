@@ -125,6 +125,7 @@
   min-height: 100vh;
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   color: var(--ink);
+  overflow: hidden;
   background:
     radial-gradient(circle at 12% 18%, rgba(199, 93, 43, 0.18), transparent 55%),
     radial-gradient(circle at 85% 12%, rgba(47, 111, 111, 0.2), transparent 50%),
