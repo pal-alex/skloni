@@ -26,10 +26,34 @@ import {hooks as colocatedHooks} from "phoenix-colocated/skloni"
 import topbar from "../vendor/topbar"
 
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+const hooks = {
+  ...colocatedHooks,
+  CtrlEnterSubmit: {
+    mounted() {
+      this.keyHandler = event => {
+        if (event.key === "Enter" && event.ctrlKey) {
+          event.preventDefault()
+          const form = this.el.form
+          if (form) {
+            form.requestSubmit()
+          }
+        }
+      }
+
+      this.el.addEventListener("keydown", this.keyHandler)
+    },
+    destroyed() {
+      if (this.keyHandler) {
+        this.el.removeEventListener("keydown", this.keyHandler)
+      }
+    },
+  },
+}
+
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},
-  hooks: {...colocatedHooks},
+  hooks,
 })
 
 // Show progress bar on live navigation and form submits
@@ -80,4 +104,3 @@ if (process.env.NODE_ENV === "development") {
     window.liveReloader = reloader
   })
 }
-
