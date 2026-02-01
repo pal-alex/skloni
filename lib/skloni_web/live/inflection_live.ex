@@ -20,7 +20,7 @@ defmodule SkloniWeb.InflectionLive do
   def render(assigns) do
     ~H"""
     <div class="app-shell">
-      <header class="control-panel">
+      <aside class="control-panel">
         <div class="brand">
           <div class="brand-mark">SK</div>
           <div>
@@ -39,7 +39,7 @@ defmodule SkloniWeb.InflectionLive do
           </div>
           <button type="button" class="start-btn" phx-click="start">Start</button>
         </div>
-      </header>
+      </aside>
 
       <main class="chat">
         <section id="feed" class="feed" aria-live="polite" phx-hook="ScrollFeed">

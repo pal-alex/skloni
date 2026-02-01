@@ -9,7 +9,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ega"}]},
-          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          %{parts: [{:text, "fant"}, {:field, "a"}]},
           {:text, " ni dneva."}
         ])
       ),
@@ -19,7 +19,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "e"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "e"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "e"}]},
           {:text, " ni dneva."}
         ])
       ),
@@ -29,7 +29,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ega"}]},
-          %{parts: [{:text, "dekl"}, {:field, "eta"}]},
+          %{parts: [{:text, "mest"}, {:field, "eta"}]},
           {:text, " ni dneva."}
         ])
       ),
@@ -39,7 +39,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "koleg"}, {:field, "ov"}]},
+          %{parts: [{:text, "fant"}, {:field, "ov"}]},
           {:text, " ni večera."}
         ])
       ),
@@ -49,7 +49,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, ""}]},
+          %{parts: [{:text, "prijatelic"}, {:field, ""}]},
           {:text, " ni večera."}
         ])
       ),
@@ -59,7 +59,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "dekl"}, {:field, ""}]},
+          %{parts: [{:text, "mest"}, {:field, ""}]},
           {:text, " ni večera."}
         ])
       ),
@@ -69,7 +69,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "koleg"}, {:field, "ov"}]},
+          %{parts: [{:text, "fant"}, {:field, "ov"}]},
           {:text, " ni dneva."}
         ])
       ),
@@ -79,7 +79,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, ""}]},
+          %{parts: [{:text, "prijatelic"}, {:field, ""}]},
           {:text, " ni dneva."}
         ])
       ),
@@ -89,7 +89,7 @@ defmodule Skloni.Tasks.Rodilnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "dekl"}, {:field, ""}]},
+          %{parts: [{:text, "mest"}, {:field, ""}]},
           {:text, " ni dneva."}
         ])
       )

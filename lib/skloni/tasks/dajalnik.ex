@@ -9,7 +9,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "emu"}]},
-          %{parts: [{:text, "koleg"}, {:field, "u"}]},
+          %{parts: [{:text, "fant"}, {:field, "u"}]},
           {:text, " grem."}
         ])
       ),
@@ -19,7 +19,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "i"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "i"}]},
           {:text, " grem."}
         ])
       ),
@@ -29,7 +29,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "emu"}]},
-          %{parts: [{:text, "dekl"}, {:field, "u"}]},
+          %{parts: [{:text, "mest"}, {:field, "u"}]},
           {:text, " grem."}
         ])
       ),
@@ -39,7 +39,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "ima"}]},
-          %{parts: [{:text, "koleg"}, {:field, "oma"}]},
+          %{parts: [{:text, "fant"}, {:field, "oma"}]},
           {:text, " greva."}
         ])
       ),
@@ -49,7 +49,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "ima"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "ama"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "ama"}]},
           {:text, " greva."}
         ])
       ),
@@ -59,7 +59,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "ima"}]},
-          %{parts: [{:text, "dekl"}, {:field, "oma"}]},
+          %{parts: [{:text, "mest"}, {:field, "oma"}]},
           {:text, " greva."}
         ])
       ),
@@ -69,7 +69,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "im"}]},
-          %{parts: [{:text, "koleg"}, {:field, "om"}]},
+          %{parts: [{:text, "fant"}, {:field, "om"}]},
           {:text, " gremo."}
         ])
       ),
@@ -79,7 +79,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "im"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "am"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "am"}]},
           {:text, " gremo."}
         ])
       ),
@@ -89,7 +89,7 @@ defmodule Skloni.Tasks.Dajalnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "im"}]},
-          %{parts: [{:text, "dekl"}, {:field, "om"}]},
+          %{parts: [{:text, "mest"}, {:field, "om"}]},
           {:text, " gremo."}
         ])
       )

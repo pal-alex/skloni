@@ -9,7 +9,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "em"}]},
-          %{parts: [{:text, "koleg"}, {:field, "u"}]},
+          %{parts: [{:text, "fant"}, {:field, "u"}]},
           {:text, " govorim."}
         ])
       ),
@@ -19,7 +19,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "i"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "i"}]},
           {:text, " govorim."}
         ])
       ),
@@ -29,7 +29,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "em"}]},
-          %{parts: [{:text, "dekl"}, {:field, "u"}]},
+          %{parts: [{:text, "mest"}, {:field, "u"}]},
           {:text, " govorim."}
         ])
       ),
@@ -39,7 +39,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "koleg"}, {:field, "ih"}]},
+          %{parts: [{:text, "fant"}, {:field, "ih"}]},
           {:text, " govoriva."}
         ])
       ),
@@ -49,7 +49,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "ah"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "ah"}]},
           {:text, " govoriva."}
         ])
       ),
@@ -59,7 +59,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "dekl"}, {:field, "ih"}]},
+          %{parts: [{:text, "mest"}, {:field, "ih"}]},
           {:text, " govoriva."}
         ])
       ),
@@ -69,7 +69,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "koleg"}, {:field, "ih"}]},
+          %{parts: [{:text, "fant"}, {:field, "ih"}]},
           {:text, " govorimo."}
         ])
       ),
@@ -79,7 +79,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "ah"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "ah"}]},
           {:text, " govorimo."}
         ])
       ),
@@ -89,7 +89,7 @@ defmodule Skloni.Tasks.Mestnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
-          %{parts: [{:text, "dekl"}, {:field, "ih"}]},
+          %{parts: [{:text, "mest"}, {:field, "ih"}]},
           {:text, " govorimo."}
         ])
       )

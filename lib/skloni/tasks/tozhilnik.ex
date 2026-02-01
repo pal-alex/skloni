@@ -9,7 +9,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Vidim dobr"}, {:field, "ega"}]},
-          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          %{parts: [{:text, "fant"}, {:field, "a"}]},
           {:text, "."}
         ])
       ),
@@ -19,7 +19,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Vidim dobr"}, {:field, "o"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "o"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "o"}]},
           {:text, "."}
         ])
       ),
@@ -29,7 +29,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Vidim dobr"}, {:field, "o"}]},
-          %{parts: [{:text, "dekl"}, {:field, "e"}]},
+          %{parts: [{:text, "mest"}, {:field, "o"}]},
           {:text, "."}
         ])
       ),
@@ -39,7 +39,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Vidiva dobr"}, {:field, "a"}]},
-          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          %{parts: [{:text, "fant"}, {:field, "a"}]},
           {:text, "."}
         ])
       ),
@@ -49,7 +49,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Vidiva dobr"}, {:field, "i"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "i"}]},
           {:text, "."}
         ])
       ),
@@ -59,7 +59,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Vidiva dobr"}, {:field, "i"}]},
-          %{parts: [{:text, "dekl"}, {:field, "i"}]},
+          %{parts: [{:text, "mest"}, {:field, "i"}]},
           {:text, "."}
         ])
       ),
@@ -69,7 +69,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Vidimo dobr"}, {:field, "e"}]},
-          %{parts: [{:text, "koleg"}, {:field, "e"}]},
+          %{parts: [{:text, "fant"}, {:field, "e"}]},
           {:text, "."}
         ])
       ),
@@ -79,7 +79,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Vidimo dobr"}, {:field, "e"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "e"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "e"}]},
           {:text, "."}
         ])
       ),
@@ -89,7 +89,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Vidimo dobr"}, {:field, "a"}]},
-          %{parts: [{:text, "dekl"}, {:field, "a"}]},
+          %{parts: [{:text, "mest"}, {:field, "a"}]},
           {:text, "."}
         ])
       )

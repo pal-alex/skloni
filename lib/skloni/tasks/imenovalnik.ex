@@ -20,7 +20,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Lep"}, {:field, "a"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "a"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "a"}]},
           %{parts: [{:text, " pride"}, {:field, ""}]},
           {:text, "."}
         ])
@@ -31,7 +31,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Lep"}, {:field, "o"}]},
-          %{parts: [{:text, "okn"}, {:field, "o"}]},
+          %{parts: [{:text, "mest"}, {:field, "o"}]},
           {:text, "imaš."}
         ])
       ),
@@ -41,7 +41,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Lep"}, {:field, "a"}]},
-          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          %{parts: [{:text, "fant"}, {:field, "a"}]},
           %{parts: [{:text, " pride"}, {:field, "ta"}]},
           {:text, "."}
         ])
@@ -52,7 +52,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Lep"}, {:field, "i"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "i"}]},
           %{parts: [{:text, " pride"}, {:field, "ta"}]},
           {:text, "."}
         ])
@@ -63,7 +63,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Lep"}, {:field, "i"}]},
-          %{parts: [{:text, "dekl"}, {:field, "i"}]},
+          %{parts: [{:text, "mest"}, {:field, "i"}]},
           %{parts: [{:text, " pride"}, {:field, "ta"}]},
           {:text, "."}
         ])
@@ -74,7 +74,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Lep"}, {:field, "i"}]},
-          %{parts: [{:text, "koleg"}, {:field, "i"}]},
+          %{parts: [{:text, "fant"}, {:field, "i"}]},
           %{parts: [{:text, " pride"}, {:field, "jo"}]},
           {:text, "."}
         ])
@@ -85,7 +85,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Lep"}, {:field, "e"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "e"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "e"}]},
           %{parts: [{:text, " pride"}, {:field, "jo"}]},
           {:text, "."}
         ])
@@ -96,7 +96,7 @@ defmodule Skloni.Tasks.Imenovalnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Lep"}, {:field, "a"}]},
-          %{parts: [{:text, "dekl"}, {:field, "a"}]},
+          %{parts: [{:text, "mest"}, {:field, "a"}]},
           %{parts: [{:text, " pride"}, {:field, "jo"}]},
           {:text, "."}
         ])

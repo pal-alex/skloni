@@ -9,7 +9,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "im"}]},
-          %{parts: [{:text, "koleg"}, {:field, "om"}]},
+          %{parts: [{:text, "fant"}, {:field, "om"}]},
           {:text, " grem."}
         ])
       ),
@@ -19,7 +19,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "o"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "o"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "o"}]},
           {:text, " grem."}
         ])
       ),
@@ -29,7 +29,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "im"}]},
-          %{parts: [{:text, "dekl"}, {:field, "om"}]},
+          %{parts: [{:text, "mest"}, {:field, "om"}]},
           {:text, " grem."}
         ])
       ),
@@ -39,7 +39,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "ima"}]},
-          %{parts: [{:text, "koleg"}, {:field, "oma"}]},
+          %{parts: [{:text, "fant"}, {:field, "oma"}]},
           {:text, " greva."}
         ])
       ),
@@ -49,7 +49,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "ima"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "ama"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "ama"}]},
           {:text, " greva."}
         ])
       ),
@@ -59,7 +59,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "ima"}]},
-          %{parts: [{:text, "dekl"}, {:field, "oma"}]},
+          %{parts: [{:text, "mest"}, {:field, "oma"}]},
           {:text, " greva."}
         ])
       ),
@@ -69,7 +69,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "imi"}]},
-          %{parts: [{:text, "koleg"}, {:field, "i"}]},
+          %{parts: [{:text, "fant"}, {:field, "i"}]},
           {:text, " gremo."}
         ])
       ),
@@ -79,7 +79,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "imi"}]},
-          %{parts: [{:text, "prijateljic"}, {:field, "ami"}]},
+          %{parts: [{:text, "prijatelic"}, {:field, "ami"}]},
           {:text, " gremo."}
         ])
       ),
@@ -89,7 +89,7 @@ defmodule Skloni.Tasks.Orodnik do
         parts([
           %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "imi"}]},
-          %{parts: [{:text, "dekl"}, {:field, "i"}]},
+          %{parts: [{:text, "mest"}, {:field, "i"}]},
           {:text, " gremo."}
         ])
       )
