@@ -58,23 +58,19 @@ defmodule SkloniWeb.InflectionLive do
                   </span>
                 </div>
                 <div class="bubble-prompt">
-                  <%= for part <- item.parts do %>
-                    {render_prompt_part(part)}
-                  <% end %>
+                  {show_phrase(item.task_parts, show_answers: false)}
                 </div>
                 <div class="bubble-row">
                   <div class="bubble-key">Your answer</div>
                   <div class={"bubble-value #{if item.correct?, do: "answer-ok", else: ""}"}>
-                    <%= for segment <- answer_segments_from_parts(item.parts, item.endings, item.expected_endings) do %>
-                      <span class={segment.class}>{segment.text}</span>
-                    <% end %>
+                    {show_phrase(item.answer_parts, show_answers: true)}
                   </div>
                 </div>
                 <%= if not item.correct? do %>
                   <div class="bubble-row">
-                    <div class="bubble-key">Correct endings</div>
-                    <div class="bubble-value answer-ok">
-                      {Enum.join(item.expected_endings, " · ")}
+                    <div class="bubble-key">Correct answer</div>
+                    <div class="bubble-value">
+                      {show_phrase(item.task_parts, show_answers: true)}
                     </div>
                   </div>
                 <% end %>
@@ -87,9 +83,7 @@ defmodule SkloniWeb.InflectionLive do
           <div class="prompt">
             <div class="prompt-label">Fill the endings</div>
             <div class="prompt-text">
-              <%= for part <- @current_test.parts do %>
-                {render_prompt_part(part)}
-              <% end %>
+              {show_phrase(@current_test.parts, show_answers: false)}
             </div>
           </div>
           <.form for={%{}} as={:entry} phx-submit="submit" phx-change="typing" class="input-row">
@@ -125,15 +119,11 @@ defmodule SkloniWeb.InflectionLive do
     else
       current = socket.assigns.current_test
       result = Skloni.Result.get_result(current, answer)
-      endings = Skloni.Result.extract_endings(result.answer, current.parts)
-      expected_endings = Skloni.Tasks.expected_endings(current.parts)
       correct? = result.passed
 
       feed_item = %{
-        parts: current.parts,
-        answer: result.answer,
-        endings: endings,
-        expected_endings: expected_endings,
+        task_parts: current.parts,
+        answer_parts: result.answer_parts,
         correct?: correct?
       }
 
@@ -175,66 +165,84 @@ defmodule SkloniWeb.InflectionLive do
     end
   end
 
-  defp answer_segments_from_parts(parts, endings, expected_endings) do
-    endings = pad_list(endings, count_fields(parts))
-    expected_endings = pad_list(expected_endings, count_fields(parts))
-
-    {segments, _} =
-      Enum.reduce(parts, {[], 0}, fn part, {acc, index} ->
-        if is_map(part) do
-          ending = Enum.at(endings, index, "")
-          expected = Enum.at(expected_endings, index, "")
-          class = ending_class(ending, expected)
-          {prepend_segment(acc, ending, class), index + 1}
-        else
-          {prepend_segment(acc, part, nil), index}
-        end
-      end)
-
-    Enum.reverse(segments)
-  end
-
-  defp count_fields(parts) do
-    parts
-    |> Enum.count(&is_map/1)
-  end
-
-  defp pad_list(list, size) do
-    list ++ List.duplicate("", max(size - length(list), 0))
-  end
-
-  defp ending_class("", ""), do: nil
-
-  defp ending_class(ending, expected) do
-    if normalize_ending(ending) == normalize_ending(expected) do
-      "answer-ok"
-    else
-      "answer-bad"
-    end
-  end
-
-  defp normalize_ending(text) do
-    text
-    |> String.downcase()
-    |> String.replace(~r/[^\p{L}\p{N}]/u, "")
-  end
-
-  defp prepend_segment(segments, "", _class), do: segments
-  defp prepend_segment(segments, text, class), do: [%{text: text, class: class} | segments]
-
-  defp render_prompt_part(%{text: text, field: _field}) do
-    assigns = %{text: text}
+  defp show_phrase(parts, opts) do
+    assigns = %{parts: parts, show_answers: Keyword.get(opts, :show_answers, false)}
 
     ~H"""
-    <span class="prompt-token flex"><span>{@text}</span><span class="prompt-field"></span></span>
+    <%= for part <- @parts do %>
+      {render_phrase_part(part, @show_answers)}
+    <% end %>
     """
   end
 
-  defp render_prompt_part(text) when is_binary(text) do
+  defp render_phrase_part({:text, text}, _show_answers) do
     assigns = %{text: text}
 
     ~H"""
     <span>{@text}</span>
     """
   end
+
+  defp render_phrase_part(%{parts: parts}, show_answers) do
+    assigns = %{parts: parts, show_answers: show_answers}
+
+    ~H"""
+    <span class="prompt-token flex">
+      <%= for token <- @parts do %>
+        {render_phrase_token(token, @show_answers)}
+      <% end %>
+    </span>
+    """
+  end
+
+  defp render_phrase_token({:text, text}, _show_answers) do
+    assigns = %{text: text}
+
+    ~H"""
+    <span>{@text}</span>
+    """
+  end
+
+  defp render_phrase_token({:field, value}, true) do
+    assigns = %{value: value}
+
+    ~H"""
+    <span class="field-answer">{@value}</span>
+    """
+  end
+
+  defp render_phrase_token({:field, _value}, false) do
+    assigns = %{}
+
+    ~H"""
+    <span class="prompt-field"></span>
+    """
+  end
+
+  defp render_phrase_token({:answer, value}, _show_answers) do
+    assigns = %{value: value}
+
+    ~H"""
+    <span class="field-answer">{@value}</span>
+    """
+  end
+
+  defp render_phrase_token({:error, value}, _show_answers) do
+    assigns = %{value: error_display(value)}
+
+    ~H"""
+    <span class="field-error">{@value}</span>
+    """
+  end
+
+  defp render_phrase_token({:soft_error, value}, _show_answers) do
+    assigns = %{value: value}
+
+    ~H"""
+    <span class="field-soft">{@value}</span>
+    """
+  end
+
+  defp error_display(""), do: "?"
+  defp error_display(value), do: value
 end

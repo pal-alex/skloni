@@ -6,59 +6,83 @@ defmodule Skloni.Tasks.Rodilnik do
       test(
         :ednina,
         :moski,
-        parts([%{text: "Brez dobr", field: "ega"}, %{text: "koleg", field: "a"}, " ni dneva."])
-      ),
-      test(
-        :ednina,
-        :zenski,
         parts([
-          %{text: "Brez dobr", field: "e"},
-          %{text: "prijateljic", field: "e"},
-          " ni dneva."
+          %{parts: [{:text, "Brez dobr"}, {:field, "ega"}]},
+          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          {:text, " ni dneva."}
         ])
       ),
       test(
         :ednina,
+        :zenski,
+        parts([
+          %{parts: [{:text, "Brez dobr"}, {:field, "e"}]},
+          %{parts: [{:text, "prijateljic"}, {:field, "e"}]},
+          {:text, " ni dneva."}
+        ])
+      ),
+      test(
+        :ednina,
         :srednji,
-        parts([%{text: "Brez dobr", field: "ega"}, %{text: "dekl", field: "eta"}, " ni dneva."])
+        parts([
+          %{parts: [{:text, "Brez dobr"}, {:field, "ega"}]},
+          %{parts: [{:text, "dekl"}, {:field, "eta"}]},
+          {:text, " ni dneva."}
+        ])
       ),
       test(
         :dvojina,
         :moski,
-        parts([%{text: "Brez dobr", field: "ih"}, %{text: "koleg", field: "ov"}, " ni večera."])
+        parts([
+          %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
+          %{parts: [{:text, "koleg"}, {:field, "ov"}]},
+          {:text, " ni večera."}
+        ])
       ),
       test(
         :dvojina,
         :zenski,
         parts([
-          %{text: "Brez dobr", field: "ih"},
-          %{text: "prijateljic", field: ""},
-          " ni večera."
+          %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
+          %{parts: [{:text, "prijateljic"}, {:field, ""}]},
+          {:text, " ni večera."}
         ])
       ),
       test(
         :dvojina,
         :srednji,
-        parts([%{text: "Brez dobr", field: "ih"}, %{text: "dekl", field: ""}, " ni večera."])
+        parts([
+          %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
+          %{parts: [{:text, "dekl"}, {:field, ""}]},
+          {:text, " ni večera."}
+        ])
       ),
       test(
         :mnozina,
         :moski,
-        parts([%{text: "Brez dobr", field: "ih"}, %{text: "koleg", field: "ov"}, " ni dneva."])
+        parts([
+          %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
+          %{parts: [{:text, "koleg"}, {:field, "ov"}]},
+          {:text, " ni dneva."}
+        ])
       ),
       test(
         :mnozina,
         :zenski,
         parts([
-          %{text: "Brez dobr", field: "ih"},
-          %{text: "prijateljic", field: ""},
-          " ni dneva."
+          %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
+          %{parts: [{:text, "prijateljic"}, {:field, ""}]},
+          {:text, " ni dneva."}
         ])
       ),
       test(
         :mnozina,
         :srednji,
-        parts([%{text: "Brez dobr", field: "ih"}, %{text: "dekl", field: ""}, " ni dneva."])
+        parts([
+          %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
+          %{parts: [{:text, "dekl"}, {:field, ""}]},
+          {:text, " ni dneva."}
+        ])
       )
     ]
   end

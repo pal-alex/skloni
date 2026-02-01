@@ -25,6 +25,11 @@ defmodule Skloni.Tasks do
   def expected_endings(parts) do
     parts
     |> Enum.filter(&is_map/1)
-    |> Enum.map(&(&1.field || ""))
+    |> Enum.flat_map(fn %{parts: tokens} ->
+      Enum.flat_map(tokens, fn
+        {:field, value} -> [value]
+        _ -> []
+      end)
+    end)
   end
 end

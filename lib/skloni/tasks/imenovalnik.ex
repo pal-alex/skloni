@@ -6,76 +6,88 @@ defmodule Skloni.Tasks.Imenovalnik do
       test(
         :ednina,
         :moski,
-        parts([%{text: "Lep", field: "i"}, %{text: "koleg", field: "a"}, " pride."])
+        parts([
+          %{parts: [{:text, "Lep"}, {:field, "i"}]},
+          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          {:text, " pride."}
+        ])
       ),
       test(
         :ednina,
         :zenski,
-        parts([%{text: "Lep", field: "a"}, %{text: "prijateljic", field: "a"}, " pride."])
+        parts([
+          %{parts: [{:text, "Lep"}, {:field, "a"}]},
+          %{parts: [{:text, "prijateljic"}, {:field, "a"}]},
+          {:text, " pride."}
+        ])
       ),
       test(
         :ednina,
         :srednji,
-        parts([%{text: "Lep", field: "o"}, %{text: "dekl", field: "e"}, " pride."])
+        parts([
+          %{parts: [{:text, "Lep"}, {:field, "o"}]},
+          %{parts: [{:text, "dekl"}, {:field, "e"}]},
+          {:text, " pride."}
+        ])
       ),
       test(
         :dvojina,
         :moski,
         parts([
-          %{text: "Lep", field: "a"},
-          %{text: "koleg", field: "a"},
-          %{text: " pride", field: "ta"},
-          "."
+          %{parts: [{:text, "Lep"}, {:field, "a"}]},
+          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          %{parts: [{:text, " pride"}, {:field, "ta"}]},
+          {:text, "."}
         ])
       ),
       test(
         :dvojina,
         :zenski,
         parts([
-          %{text: "Lep", field: "i"},
-          %{text: "prijateljic", field: "i"},
-          %{text: " pride", field: "ta"},
-          "."
+          %{parts: [{:text, "Lep"}, {:field, "i"}]},
+          %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
+          %{parts: [{:text, " pride"}, {:field, "ta"}]},
+          {:text, "."}
         ])
       ),
       test(
         :dvojina,
         :srednji,
         parts([
-          %{text: "Lep", field: "i"},
-          %{text: "dekl", field: "i"},
-          %{text: " pride", field: "ta"},
-          "."
+          %{parts: [{:text, "Lep"}, {:field, "i"}]},
+          %{parts: [{:text, "dekl"}, {:field, "i"}]},
+          %{parts: [{:text, " pride"}, {:field, "ta"}]},
+          {:text, "."}
         ])
       ),
       test(
         :mnozina,
         :moski,
         parts([
-          %{text: "Lep", field: "i"},
-          %{text: "koleg", field: "i"},
-          %{text: " pride", field: "jo"},
-          "."
+          %{parts: [{:text, "Lep"}, {:field, "i"}]},
+          %{parts: [{:text, "koleg"}, {:field, "i"}]},
+          %{parts: [{:text, " pride"}, {:field, "jo"}]},
+          {:text, "."}
         ])
       ),
       test(
         :mnozina,
         :zenski,
         parts([
-          %{text: "Lep", field: "e"},
-          %{text: "prijateljic", field: "e"},
-          %{text: " pride", field: "jo"},
-          "."
+          %{parts: [{:text, "Lep"}, {:field, "e"}]},
+          %{parts: [{:text, "prijateljic"}, {:field, "e"}]},
+          %{parts: [{:text, " pride"}, {:field, "jo"}]},
+          {:text, "."}
         ])
       ),
       test(
         :mnozina,
         :srednji,
         parts([
-          %{text: "Lep", field: "a"},
-          %{text: "dekl", field: "a"},
-          %{text: " pride", field: "jo"},
-          "."
+          %{parts: [{:text, "Lep"}, {:field, "a"}]},
+          %{parts: [{:text, "dekl"}, {:field, "a"}]},
+          %{parts: [{:text, " pride"}, {:field, "jo"}]},
+          {:text, "."}
         ])
       )
     ]

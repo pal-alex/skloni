@@ -367,6 +367,21 @@
   vertical-align: baseline;
 }
 
+.field-answer {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.field-error {
+  color: var(--accent-strong);
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent-strong);
+}
+
+.field-soft {
+  color: rgba(31, 29, 24, 0.45);
+}
+
 .input-row {
   display: grid;
   grid-template-columns: 1fr auto;
