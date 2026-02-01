@@ -3,7 +3,7 @@ import Config
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :skloni, SkloniWeb.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4002],
+  http: [ip: {127, 0, 0, 1}, port: 4502],
   secret_key_base: "RTHSa5rTYcy7B9kAXNLU8fiMvfiD1oWzAJQpkRepdWA4sL6KalFdQsXcKfa9cHLk",
   server: false
 
