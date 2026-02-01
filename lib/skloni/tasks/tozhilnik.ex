@@ -7,6 +7,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :ednina,
         :moski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Vidim dobr"}, {:field, "ega"}]},
           %{parts: [{:text, "koleg"}, {:field, "a"}]},
           {:text, "."}
@@ -16,6 +17,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :ednina,
         :zenski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Vidim dobr"}, {:field, "o"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "o"}]},
           {:text, "."}
@@ -25,6 +27,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :ednina,
         :srednji,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Vidim dobr"}, {:field, "o"}]},
           %{parts: [{:text, "dekl"}, {:field, "e"}]},
           {:text, "."}
@@ -34,6 +37,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :dvojina,
         :moski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Vidiva dobr"}, {:field, "a"}]},
           %{parts: [{:text, "koleg"}, {:field, "a"}]},
           {:text, "."}
@@ -43,6 +47,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :dvojina,
         :zenski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Vidiva dobr"}, {:field, "i"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
           {:text, "."}
@@ -52,6 +57,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :dvojina,
         :srednji,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Vidiva dobr"}, {:field, "i"}]},
           %{parts: [{:text, "dekl"}, {:field, "i"}]},
           {:text, "."}
@@ -61,6 +67,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :mnozina,
         :moski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Vidimo dobr"}, {:field, "e"}]},
           %{parts: [{:text, "koleg"}, {:field, "e"}]},
           {:text, "."}
@@ -70,6 +77,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :mnozina,
         :zenski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Vidimo dobr"}, {:field, "e"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "e"}]},
           {:text, "."}
@@ -79,6 +87,7 @@ defmodule Skloni.Tasks.Tozhilnik do
         :mnozina,
         :srednji,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Vidimo dobr"}, {:field, "a"}]},
           %{parts: [{:text, "dekl"}, {:field, "a"}]},
           {:text, "."}

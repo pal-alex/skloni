@@ -7,6 +7,7 @@ defmodule Skloni.Tasks.Mestnik do
         :ednina,
         :moski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "em"}]},
           %{parts: [{:text, "koleg"}, {:field, "u"}]},
           {:text, " govorim."}
@@ -16,6 +17,7 @@ defmodule Skloni.Tasks.Mestnik do
         :ednina,
         :zenski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "i"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
           {:text, " govorim."}
@@ -25,6 +27,7 @@ defmodule Skloni.Tasks.Mestnik do
         :ednina,
         :srednji,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "em"}]},
           %{parts: [{:text, "dekl"}, {:field, "u"}]},
           {:text, " govorim."}
@@ -34,6 +37,7 @@ defmodule Skloni.Tasks.Mestnik do
         :dvojina,
         :moski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "koleg"}, {:field, "ih"}]},
           {:text, " govoriva."}
@@ -43,6 +47,7 @@ defmodule Skloni.Tasks.Mestnik do
         :dvojina,
         :zenski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "ah"}]},
           {:text, " govoriva."}
@@ -52,6 +57,7 @@ defmodule Skloni.Tasks.Mestnik do
         :dvojina,
         :srednji,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "dekl"}, {:field, "ih"}]},
           {:text, " govoriva."}
@@ -61,6 +67,7 @@ defmodule Skloni.Tasks.Mestnik do
         :mnozina,
         :moski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "koleg"}, {:field, "ih"}]},
           {:text, " govorimo."}
@@ -70,6 +77,7 @@ defmodule Skloni.Tasks.Mestnik do
         :mnozina,
         :zenski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "ah"}]},
           {:text, " govorimo."}
@@ -79,6 +87,7 @@ defmodule Skloni.Tasks.Mestnik do
         :mnozina,
         :srednji,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "O dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "dekl"}, {:field, "ih"}]},
           {:text, " govorimo."}

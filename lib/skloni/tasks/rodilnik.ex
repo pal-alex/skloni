@@ -7,6 +7,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :ednina,
         :moski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ega"}]},
           %{parts: [{:text, "koleg"}, {:field, "a"}]},
           {:text, " ni dneva."}
@@ -16,6 +17,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :ednina,
         :zenski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "e"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "e"}]},
           {:text, " ni dneva."}
@@ -25,6 +27,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :ednina,
         :srednji,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ega"}]},
           %{parts: [{:text, "dekl"}, {:field, "eta"}]},
           {:text, " ni dneva."}
@@ -34,6 +37,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :dvojina,
         :moski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "koleg"}, {:field, "ov"}]},
           {:text, " ni večera."}
@@ -43,6 +47,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :dvojina,
         :zenski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "prijateljic"}, {:field, ""}]},
           {:text, " ni večera."}
@@ -52,6 +57,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :dvojina,
         :srednji,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "dekl"}, {:field, ""}]},
           {:text, " ni večera."}
@@ -61,6 +67,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :mnozina,
         :moski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "koleg"}, {:field, "ov"}]},
           {:text, " ni dneva."}
@@ -70,6 +77,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :mnozina,
         :zenski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "prijateljic"}, {:field, ""}]},
           {:text, " ni dneva."}
@@ -79,6 +87,7 @@ defmodule Skloni.Tasks.Rodilnik do
         :mnozina,
         :srednji,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Brez dobr"}, {:field, "ih"}]},
           %{parts: [{:text, "dekl"}, {:field, ""}]},
           {:text, " ni dneva."}

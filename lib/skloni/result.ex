@@ -24,8 +24,12 @@ defmodule Skloni.Result do
         build_answer_parts(rest, remaining, [part | acc])
 
       %{parts: _} = word ->
-        {items, remaining} = match_word(word, user_words, [])
-        build_answer_parts(rest, remaining, Enum.reverse(items) ++ acc)
+        if note_only?(word) do
+          build_answer_parts(rest, user_words, [word | acc])
+        else
+          {items, remaining} = match_word(word, user_words, [])
+          build_answer_parts(rest, remaining, Enum.reverse(items) ++ acc)
+        end
 
       _ ->
         build_answer_parts(rest, user_words, acc)
@@ -78,6 +82,7 @@ defmodule Skloni.Result do
     parts
     |> Enum.reduce("", fn
       {:text, text}, acc -> acc <> text
+      {:note, _value}, acc -> acc
       _part, acc -> acc
     end)
   end
@@ -115,6 +120,13 @@ defmodule Skloni.Result do
 
   defp soft_error_item(word) do
     %{parts: [{:soft_error, word}]}
+  end
+
+  defp note_only?(%{parts: parts}) do
+    Enum.all?(parts, fn
+      {:note, _value} -> true
+      _ -> false
+    end)
   end
 
   defp consume_text_words(user_words, text) do

@@ -219,6 +219,14 @@ defmodule SkloniWeb.InflectionLive do
     """
   end
 
+  defp render_phrase_token({:note, value}, _show_answers) do
+    assigns = %{value: value}
+
+    ~H"""
+    <span class="prompt-note">{@value}</span>
+    """
+  end
+
   defp render_phrase_token({:answer, value}, _show_answers) do
     assigns = %{value: value}
 

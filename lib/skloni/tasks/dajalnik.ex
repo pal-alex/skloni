@@ -7,6 +7,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :ednina,
         :moski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "emu"}]},
           %{parts: [{:text, "koleg"}, {:field, "u"}]},
           {:text, " grem."}
@@ -16,6 +17,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :ednina,
         :zenski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "i"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "i"}]},
           {:text, " grem."}
@@ -25,6 +27,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :ednina,
         :srednji,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "emu"}]},
           %{parts: [{:text, "dekl"}, {:field, "u"}]},
           {:text, " grem."}
@@ -34,6 +37,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :dvojina,
         :moski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "ima"}]},
           %{parts: [{:text, "koleg"}, {:field, "oma"}]},
           {:text, " greva."}
@@ -43,6 +47,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :dvojina,
         :zenski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "ima"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "ama"}]},
           {:text, " greva."}
@@ -52,6 +57,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :dvojina,
         :srednji,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "ima"}]},
           %{parts: [{:text, "dekl"}, {:field, "oma"}]},
           {:text, " greva."}
@@ -61,6 +67,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :mnozina,
         :moski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "im"}]},
           %{parts: [{:text, "koleg"}, {:field, "om"}]},
           {:text, " gremo."}
@@ -70,6 +77,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :mnozina,
         :zenski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "im"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "am"}]},
           {:text, " gremo."}
@@ -79,6 +87,7 @@ defmodule Skloni.Tasks.Dajalnik do
         :mnozina,
         :srednji,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "K dobr"}, {:field, "im"}]},
           %{parts: [{:text, "dekl"}, {:field, "om"}]},
           {:text, " gremo."}

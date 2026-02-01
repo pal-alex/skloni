@@ -7,6 +7,7 @@ defmodule Skloni.Tasks.Orodnik do
         :ednina,
         :moski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "im"}]},
           %{parts: [{:text, "koleg"}, {:field, "om"}]},
           {:text, " grem."}
@@ -16,6 +17,7 @@ defmodule Skloni.Tasks.Orodnik do
         :ednina,
         :zenski,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "o"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "o"}]},
           {:text, " grem."}
@@ -25,6 +27,7 @@ defmodule Skloni.Tasks.Orodnik do
         :ednina,
         :srednji,
         parts([
+          %{parts: [{:note, "[1]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "im"}]},
           %{parts: [{:text, "dekl"}, {:field, "om"}]},
           {:text, " grem."}
@@ -34,6 +37,7 @@ defmodule Skloni.Tasks.Orodnik do
         :dvojina,
         :moski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "ima"}]},
           %{parts: [{:text, "koleg"}, {:field, "oma"}]},
           {:text, " greva."}
@@ -43,6 +47,7 @@ defmodule Skloni.Tasks.Orodnik do
         :dvojina,
         :zenski,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "ima"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "ama"}]},
           {:text, " greva."}
@@ -52,6 +57,7 @@ defmodule Skloni.Tasks.Orodnik do
         :dvojina,
         :srednji,
         parts([
+          %{parts: [{:note, "[2]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "ima"}]},
           %{parts: [{:text, "dekl"}, {:field, "oma"}]},
           {:text, " greva."}
@@ -61,6 +67,7 @@ defmodule Skloni.Tasks.Orodnik do
         :mnozina,
         :moski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "imi"}]},
           %{parts: [{:text, "koleg"}, {:field, "i"}]},
           {:text, " gremo."}
@@ -70,6 +77,7 @@ defmodule Skloni.Tasks.Orodnik do
         :mnozina,
         :zenski,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "imi"}]},
           %{parts: [{:text, "prijateljic"}, {:field, "ami"}]},
           {:text, " gremo."}
@@ -79,6 +87,7 @@ defmodule Skloni.Tasks.Orodnik do
         :mnozina,
         :srednji,
         parts([
+          %{parts: [{:note, "[3]"}]},
           %{parts: [{:text, "Z dobr"}, {:field, "imi"}]},
           %{parts: [{:text, "dekl"}, {:field, "i"}]},
           {:text, " gremo."}
