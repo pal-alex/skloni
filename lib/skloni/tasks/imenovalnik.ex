@@ -8,8 +8,8 @@ defmodule Skloni.Tasks.Imenovalnik do
         :moski,
         parts([
           %{parts: [{:note, "[1]"}]},
-          %{parts: [{:text, "Lep"}, {:field, "i"}]},
-          %{parts: [{:text, "koleg"}, {:field, "a"}]},
+          %{parts: [{:text, "Lep"}, {:field, ""}]},
+          %{parts: [{:text, "prijatelj"}, {:field, ""}]},
           {:text, " pride."}
         ])
       ),
