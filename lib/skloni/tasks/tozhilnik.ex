@@ -3,31 +3,51 @@ defmodule Skloni.Tasks.Tozhilnik do
 
   def tests do
     [
-      test(:ednina, :moski, parts(["Vidim dobr", {:field, "ega"}, " koleg", {:field, "a"}, "."])),
+      test(
+        :ednina,
+        :moski,
+        parts([%{text: "Vidim dobr", field: "ega"}, %{text: "koleg", field: "a"}, "."])
+      ),
       test(
         :ednina,
         :zenski,
-        parts(["Vidim dobr", {:field, "o"}, " prijateljic", {:field, "o"}, "."])
+        parts([%{text: "Vidim dobr", field: "o"}, %{text: "prijateljic", field: "o"}, "."])
       ),
-      test(:ednina, :srednji, parts(["Vidim dobr", {:field, "o"}, " dekl", {:field, "e"}, "."])),
-      test(:dvojina, :moski, parts(["Vidiva dobr", {:field, "a"}, " koleg", {:field, "a"}, "."])),
+      test(
+        :ednina,
+        :srednji,
+        parts([%{text: "Vidim dobr", field: "o"}, %{text: "dekl", field: "e"}, "."])
+      ),
+      test(
+        :dvojina,
+        :moski,
+        parts([%{text: "Vidiva dobr", field: "a"}, %{text: "koleg", field: "a"}, "."])
+      ),
       test(
         :dvojina,
         :zenski,
-        parts(["Vidiva dobr", {:field, "i"}, " prijateljic", {:field, "i"}, "."])
+        parts([%{text: "Vidiva dobr", field: "i"}, %{text: "prijateljic", field: "i"}, "."])
       ),
       test(
         :dvojina,
         :srednji,
-        parts(["Vidiva dobr", {:field, "i"}, " dekl", {:field, "i"}, "."])
+        parts([%{text: "Vidiva dobr", field: "i"}, %{text: "dekl", field: "i"}, "."])
       ),
-      test(:mnozina, :moski, parts(["Vidimo dobr", {:field, "e"}, " koleg", {:field, "e"}, "."])),
+      test(
+        :mnozina,
+        :moski,
+        parts([%{text: "Vidimo dobr", field: "e"}, %{text: "koleg", field: "e"}, "."])
+      ),
       test(
         :mnozina,
         :zenski,
-        parts(["Vidimo dobr", {:field, "e"}, " prijateljic", {:field, "e"}, "."])
+        parts([%{text: "Vidimo dobr", field: "e"}, %{text: "prijateljic", field: "e"}, "."])
       ),
-      test(:mnozina, :srednji, parts(["Vidimo dobr", {:field, "a"}, " dekl", {:field, "a"}, "."]))
+      test(
+        :mnozina,
+        :srednji,
+        parts([%{text: "Vidimo dobr", field: "a"}, %{text: "dekl", field: "a"}, "."])
+      )
     ]
   end
 
@@ -35,10 +55,5 @@ defmodule Skloni.Tasks.Tozhilnik do
     %{case: :tozhilnik, number: number, gender: gender, parts: parts}
   end
 
-  defp parts(items) do
-    Enum.map(items, fn
-      {:field, value} -> %{field: value}
-      text -> %{text: text}
-    end)
-  end
+  defp parts(items), do: items
 end

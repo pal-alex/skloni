@@ -6,47 +6,47 @@ defmodule Skloni.Tasks.Orodnik do
       test(
         :ednina,
         :moski,
-        parts(["Z dobr", {:field, "im"}, " koleg", {:field, "om"}, " grem."])
+        parts([%{text: "Z dobr", field: "im"}, %{text: "koleg", field: "om"}, " grem."])
       ),
       test(
         :ednina,
         :zenski,
-        parts(["Z dobr", {:field, "o"}, " prijateljic", {:field, "o"}, " grem."])
+        parts([%{text: "Z dobr", field: "o"}, %{text: "prijateljic", field: "o"}, " grem."])
       ),
       test(
         :ednina,
         :srednji,
-        parts(["Z dobr", {:field, "im"}, " dekl", {:field, "om"}, " grem."])
+        parts([%{text: "Z dobr", field: "im"}, %{text: "dekl", field: "om"}, " grem."])
       ),
       test(
         :dvojina,
         :moski,
-        parts(["Z dobr", {:field, "ima"}, " koleg", {:field, "oma"}, " greva."])
+        parts([%{text: "Z dobr", field: "ima"}, %{text: "koleg", field: "oma"}, " greva."])
       ),
       test(
         :dvojina,
         :zenski,
-        parts(["Z dobr", {:field, "ima"}, " prijateljic", {:field, "ama"}, " greva."])
+        parts([%{text: "Z dobr", field: "ima"}, %{text: "prijateljic", field: "ama"}, " greva."])
       ),
       test(
         :dvojina,
         :srednji,
-        parts(["Z dobr", {:field, "ima"}, " dekl", {:field, "oma"}, " greva."])
+        parts([%{text: "Z dobr", field: "ima"}, %{text: "dekl", field: "oma"}, " greva."])
       ),
       test(
         :mnozina,
         :moski,
-        parts(["Z dobr", {:field, "imi"}, " koleg", {:field, "i"}, " gremo."])
+        parts([%{text: "Z dobr", field: "imi"}, %{text: "koleg", field: "i"}, " gremo."])
       ),
       test(
         :mnozina,
         :zenski,
-        parts(["Z dobr", {:field, "imi"}, " prijateljic", {:field, "ami"}, " gremo."])
+        parts([%{text: "Z dobr", field: "imi"}, %{text: "prijateljic", field: "ami"}, " gremo."])
       ),
       test(
         :mnozina,
         :srednji,
-        parts(["Z dobr", {:field, "imi"}, " dekl", {:field, "i"}, " gremo."])
+        parts([%{text: "Z dobr", field: "imi"}, %{text: "dekl", field: "i"}, " gremo."])
       )
     ]
   end
@@ -55,10 +55,5 @@ defmodule Skloni.Tasks.Orodnik do
     %{case: :orodnik, number: number, gender: gender, parts: parts}
   end
 
-  defp parts(items) do
-    Enum.map(items, fn
-      {:field, value} -> %{field: value}
-      text -> %{text: text}
-    end)
-  end
+  defp parts(items), do: items
 end

@@ -3,58 +3,80 @@ defmodule Skloni.Tasks.Imenovalnik do
 
   def tests do
     [
-      test(:ednina, :moski, parts(["Lep", {:field, "i"}, " koleg", {:field, "a"}, " pride."])),
+      test(
+        :ednina,
+        :moski,
+        parts([%{text: "Lep", field: "i"}, %{text: "koleg", field: "a"}, " pride."])
+      ),
       test(
         :ednina,
         :zenski,
-        parts(["Lep", {:field, "a"}, " prijateljic", {:field, "a"}, " pride."])
+        parts([%{text: "Lep", field: "a"}, %{text: "prijateljic", field: "a"}, " pride."])
       ),
-      test(:ednina, :srednji, parts(["Lep", {:field, "o"}, " dekl", {:field, "e"}, " pride."])),
+      test(
+        :ednina,
+        :srednji,
+        parts([%{text: "Lep", field: "o"}, %{text: "dekl", field: "e"}, " pride."])
+      ),
       test(
         :dvojina,
         :moski,
-        parts(["Lep", {:field, "a"}, " koleg", {:field, "a"}, " pride", {:field, "ta"}, "."])
+        parts([
+          %{text: "Lep", field: "a"},
+          %{text: "koleg", field: "a"},
+          %{text: " pride", field: "ta"},
+          "."
+        ])
       ),
       test(
         :dvojina,
         :zenski,
         parts([
-          "Lep",
-          {:field, "i"},
-          " prijateljic",
-          {:field, "i"},
-          " pride",
-          {:field, "ta"},
+          %{text: "Lep", field: "i"},
+          %{text: "prijateljic", field: "i"},
+          %{text: " pride", field: "ta"},
           "."
         ])
       ),
       test(
         :dvojina,
         :srednji,
-        parts(["Lep", {:field, "i"}, " dekl", {:field, "i"}, " pride", {:field, "ta"}, "."])
+        parts([
+          %{text: "Lep", field: "i"},
+          %{text: "dekl", field: "i"},
+          %{text: " pride", field: "ta"},
+          "."
+        ])
       ),
       test(
         :mnozina,
         :moski,
-        parts(["Lep", {:field, "i"}, " koleg", {:field, "i"}, " pride", {:field, "jo"}, "."])
+        parts([
+          %{text: "Lep", field: "i"},
+          %{text: "koleg", field: "i"},
+          %{text: " pride", field: "jo"},
+          "."
+        ])
       ),
       test(
         :mnozina,
         :zenski,
         parts([
-          "Lep",
-          {:field, "e"},
-          " prijateljic",
-          {:field, "e"},
-          " pride",
-          {:field, "jo"},
+          %{text: "Lep", field: "e"},
+          %{text: "prijateljic", field: "e"},
+          %{text: " pride", field: "jo"},
           "."
         ])
       ),
       test(
         :mnozina,
         :srednji,
-        parts(["Lep", {:field, "a"}, " dekl", {:field, "a"}, " pride", {:field, "jo"}, "."])
+        parts([
+          %{text: "Lep", field: "a"},
+          %{text: "dekl", field: "a"},
+          %{text: " pride", field: "jo"},
+          "."
+        ])
       )
     ]
   end
@@ -63,10 +85,5 @@ defmodule Skloni.Tasks.Imenovalnik do
     %{case: :imenovalnik, number: number, gender: gender, parts: parts}
   end
 
-  defp parts(items) do
-    Enum.map(items, fn
-      {:field, value} -> %{field: value}
-      text -> %{text: text}
-    end)
-  end
+  defp parts(items), do: items
 end

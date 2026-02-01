@@ -34,10 +34,14 @@ defmodule Skloni.Result do
     end
   end
 
-  defp do_extract_endings(answer, [%{field: _} | rest], acc) do
+  defp do_extract_endings(answer, [part | rest], acc) when is_map(part) do
     next_text = next_text(rest)
     {ending, remaining} = split_by_text(answer, next_text)
     do_extract_endings(remaining, rest, [String.trim_leading(ending) | acc])
+  end
+
+  defp do_extract_endings(answer, [_part | rest], acc) do
+    do_extract_endings(answer, rest, acc)
   end
 
   defp next_text(parts) do

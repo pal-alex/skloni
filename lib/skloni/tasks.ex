@@ -24,7 +24,7 @@ defmodule Skloni.Tasks do
 
   def expected_endings(parts) do
     parts
-    |> Enum.filter(&Map.has_key?(&1, :field))
+    |> Enum.filter(&is_map/1)
     |> Enum.map(&(&1.field || ""))
   end
 end

@@ -59,11 +59,7 @@ defmodule SkloniWeb.InflectionLive do
                 </div>
                 <div class="bubble-prompt">
                   <%= for part <- item.parts do %>
-                    <%= if Map.has_key?(part, :field) do %>
-                      <span class="prompt-field">__</span>
-                    <% else %>
-                      <span>{part.text}</span>
-                    <% end %>
+                    {render_prompt_part(part)}
                   <% end %>
                 </div>
                 <div class="bubble-row">
@@ -92,11 +88,7 @@ defmodule SkloniWeb.InflectionLive do
             <div class="prompt-label">Fill the endings</div>
             <div class="prompt-text">
               <%= for part <- @current_test.parts do %>
-                <%= if Map.has_key?(part, :field) do %>
-                  <span class="prompt-field">__</span>
-                <% else %>
-                  <span>{part.text}</span>
-                <% end %>
+                {render_prompt_part(part)}
               <% end %>
             </div>
           </div>
@@ -189,13 +181,13 @@ defmodule SkloniWeb.InflectionLive do
 
     {segments, _} =
       Enum.reduce(parts, {[], 0}, fn part, {acc, index} ->
-        if Map.has_key?(part, :field) do
+        if is_map(part) do
           ending = Enum.at(endings, index, "")
           expected = Enum.at(expected_endings, index, "")
           class = ending_class(ending, expected)
           {prepend_segment(acc, ending, class), index + 1}
         else
-          {prepend_segment(acc, part.text, nil), index}
+          {prepend_segment(acc, part, nil), index}
         end
       end)
 
@@ -204,7 +196,7 @@ defmodule SkloniWeb.InflectionLive do
 
   defp count_fields(parts) do
     parts
-    |> Enum.count(&Map.has_key?(&1, :field))
+    |> Enum.count(&is_map/1)
   end
 
   defp pad_list(list, size) do
@@ -229,4 +221,20 @@ defmodule SkloniWeb.InflectionLive do
 
   defp prepend_segment(segments, "", _class), do: segments
   defp prepend_segment(segments, text, class), do: [%{text: text, class: class} | segments]
+
+  defp render_prompt_part(%{text: text, field: _field}) do
+    assigns = %{text: text}
+
+    ~H"""
+    <span class="prompt-token flex"><span>{@text}</span><span class="prompt-field"></span></span>
+    """
+  end
+
+  defp render_prompt_part(text) when is_binary(text) do
+    assigns = %{text: text}
+
+    ~H"""
+    <span>{@text}</span>
+    """
+  end
 end
