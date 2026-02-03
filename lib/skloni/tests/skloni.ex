@@ -53,7 +53,7 @@ defmodule Skloni.Tests.Skloni do
       {"skloni", 45, "{3} O dobr[ih] mest[ih] govorimo.", "množina, srednji spol, mestnik"},
       {"skloni", 46, "{1} Z dobr[im] fant[om] grem.", "ednina, moški spol, orodnik"},
       {"skloni", 47, "{1} Z dobr[o] prijatelic[o] grem.", "ednina, ženski spol, orodnik"},
-      {"skloni", 48, "{1} Z dobr[im] mest[om] grem.", "ednina, srednji spol, orodnik"},
+      {"skloni", 48, "{1} Z dobr[im] občutj[em] grem.", "ednina, srednji spol, orodnik"},
       {"skloni", 49, "{2} Z dobr[ima] fant[oma] greva.", "dvojina, moški spol, orodnik"},
       {"skloni", 50, "{2} Z dobr[ima] prijatelic[ama] greva.", "dvojina, ženski spol, orodnik"},
       {"skloni", 51, "{2} Z dobr[ima] orodj[ema] greva.", "dvojina, srednji spol, orodnik"},
