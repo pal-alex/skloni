@@ -23,8 +23,17 @@ defmodule Skloni.DB.Mnesia do
   end
 
   def write_record!(record) do
-    {:atomic, :ok} = :mnesia.transaction(fn -> :mnesia.write(record) end)
-    :ok
+    case :mnesia.transaction(fn -> :mnesia.write(record) end) do
+      {:atomic, :ok} ->
+        :ok
+
+      {:aborted, {:bad_type, _}} ->
+        raise RuntimeError,
+              "Mnesia table schema mismatch. Run `mix skloni.db.rebuild_domain_with_data` to preserve data, `mix skloni.db.rebuild_domain` to reset, or add a migration."
+
+      {:aborted, reason} ->
+        raise MatchError, term: {:aborted, reason}
+    end
   end
 
   def write_record(record) do

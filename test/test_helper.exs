@@ -7,4 +7,7 @@ if String.starts_with?(mnesia_path, expected_root) do
   File.rm_rf!(mnesia_path)
 end
 
+_ = Skloni.Mnesia.start()
+_ = Skloni.Mnesia.stop()
+
 ExUnit.start()

@@ -1,25 +1,12 @@
 defmodule Skloni.Tasks do
   @moduledoc false
 
-  alias Skloni.Tasks.{
-    Dajalnik,
-    Imenovalnik,
-    Mestnik,
-    Orodnik,
-    Rodilnik,
-    Tozhilnik
-  }
+  alias Skloni.Tasks.Format
+  alias Skloni.Tests.Skloni
 
   def all_tasks do
-    [
-      Imenovalnik,
-      Rodilnik,
-      Dajalnik,
-      Tozhilnik,
-      Mestnik,
-      Orodnik
-    ]
-    |> Enum.flat_map(& &1.tasks())
+    Skloni.tasks()
+    |> Enum.map(&Format.from_raw_task/1)
   end
 
   def expected_endings(parts) do
@@ -33,7 +20,7 @@ defmodule Skloni.Tasks do
     end)
   end
 
-  def task_id(%{case: case_name, number: number, gender: gender}) do
-    {case_name, number, gender}
+  def task_id(%{test_id: test_id, task_id: task_id}) do
+    {test_id, task_id}
   end
 end

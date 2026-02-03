@@ -41,7 +41,9 @@ defmodule SkloniWeb.InflectionLive do
               <div class="stat-label">Passed</div>
               <div class="stat-value">{@passed}</div>
             </div>
-            <button type="button" class="start-btn" phx-click="start">Start</button>
+            <button id="start-test" type="button" class="start-btn" phx-click="start">
+              Start
+            </button>
           </div>
         </aside>
 
@@ -71,6 +73,10 @@ defmodule SkloniWeb.InflectionLive do
                     </div>
                   </div>
                   <%= if not item.correct? do %>
+                    <div class="bubble-row">
+                      <div class="bubble-key">Info</div>
+                      <div class="bubble-value">{item.comments}</div>
+                    </div>
                     <div class="bubble-row">
                       <div class="bubble-key">Correct answer</div>
                       <div class="bubble-value">
@@ -108,7 +114,7 @@ defmodule SkloniWeb.InflectionLive do
                 id="inflection-answer"
                 field={@form[:answer]}
                 type="text"
-                class="answer-input"
+                class="w-full answer-input"
                 autocomplete="off"
                 spellcheck="false"
                 placeholder={
@@ -153,7 +159,8 @@ defmodule SkloniWeb.InflectionLive do
       feed_item = %{
         task_parts: current.parts,
         answer_parts: result.answer_parts,
-        correct?: correct?
+        correct?: correct?,
+        comments: current.comments
       }
 
       next_index = socket.assigns.task_index + 1
