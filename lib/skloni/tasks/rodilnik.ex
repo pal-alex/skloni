@@ -1,9 +1,9 @@
 defmodule Skloni.Tasks.Rodilnik do
   @moduledoc false
 
-  def tests do
+  def tasks do
     [
-      test(
+      task(
         :ednina,
         :moski,
         parts([
@@ -13,7 +13,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni dneva."}
         ])
       ),
-      test(
+      task(
         :ednina,
         :zenski,
         parts([
@@ -23,7 +23,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni dneva."}
         ])
       ),
-      test(
+      task(
         :ednina,
         :srednji,
         parts([
@@ -33,7 +33,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni dneva."}
         ])
       ),
-      test(
+      task(
         :dvojina,
         :moski,
         parts([
@@ -43,7 +43,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni večera."}
         ])
       ),
-      test(
+      task(
         :dvojina,
         :zenski,
         parts([
@@ -53,7 +53,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni večera."}
         ])
       ),
-      test(
+      task(
         :dvojina,
         :srednji,
         parts([
@@ -63,7 +63,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni večera."}
         ])
       ),
-      test(
+      task(
         :mnozina,
         :moski,
         parts([
@@ -73,7 +73,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni dneva."}
         ])
       ),
-      test(
+      task(
         :mnozina,
         :zenski,
         parts([
@@ -83,7 +83,7 @@ defmodule Skloni.Tasks.Rodilnik do
           {:text, " ni dneva."}
         ])
       ),
-      test(
+      task(
         :mnozina,
         :srednji,
         parts([
@@ -96,7 +96,7 @@ defmodule Skloni.Tasks.Rodilnik do
     ]
   end
 
-  defp test(number, gender, parts) do
+  defp task(number, gender, parts) do
     %{case: :rodilnik, number: number, gender: gender, parts: parts}
   end
 

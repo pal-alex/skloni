@@ -7,6 +7,8 @@ defmodule Skloni.Application do
 
   @impl true
   def start(_type, _args) do
+    _ = Skloni.Mnesia.start()
+
     children = [
       SkloniWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:skloni, :dns_cluster_query) || :ignore},

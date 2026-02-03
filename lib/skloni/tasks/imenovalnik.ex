@@ -1,9 +1,9 @@
 defmodule Skloni.Tasks.Imenovalnik do
   @moduledoc false
 
-  def tests do
+  def tasks do
     [
-      test(
+      task(
         :ednina,
         :moski,
         parts([
@@ -14,7 +14,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "."}
         ])
       ),
-      test(
+      task(
         :ednina,
         :zenski,
         parts([
@@ -25,7 +25,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "."}
         ])
       ),
-      test(
+      task(
         :ednina,
         :srednji,
         parts([
@@ -35,7 +35,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "imaš."}
         ])
       ),
-      test(
+      task(
         :dvojina,
         :moski,
         parts([
@@ -46,7 +46,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "."}
         ])
       ),
-      test(
+      task(
         :dvojina,
         :zenski,
         parts([
@@ -57,7 +57,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "."}
         ])
       ),
-      test(
+      task(
         :dvojina,
         :srednji,
         parts([
@@ -68,7 +68,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "."}
         ])
       ),
-      test(
+      task(
         :mnozina,
         :moski,
         parts([
@@ -79,7 +79,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "."}
         ])
       ),
-      test(
+      task(
         :mnozina,
         :zenski,
         parts([
@@ -90,7 +90,7 @@ defmodule Skloni.Tasks.Imenovalnik do
           {:text, "."}
         ])
       ),
-      test(
+      task(
         :mnozina,
         :srednji,
         parts([
@@ -104,7 +104,7 @@ defmodule Skloni.Tasks.Imenovalnik do
     ]
   end
 
-  defp test(number, gender, parts) do
+  defp task(number, gender, parts) do
     %{case: :imenovalnik, number: number, gender: gender, parts: parts}
   end
 

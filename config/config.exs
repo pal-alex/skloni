@@ -10,6 +10,8 @@ import Config
 config :skloni,
   generators: [timestamp_type: :utc_datetime]
 
+config :mnesia, dir: ~c"priv/mnesia/#{config_env()}"
+
 # Configure the endpoint
 config :skloni, SkloniWeb.Endpoint,
   url: [host: "localhost"],

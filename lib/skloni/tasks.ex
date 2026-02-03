@@ -10,7 +10,7 @@ defmodule Skloni.Tasks do
     Tozhilnik
   }
 
-  def all_tests do
+  def all_tasks do
     [
       Imenovalnik,
       Rodilnik,
@@ -19,7 +19,7 @@ defmodule Skloni.Tasks do
       Mestnik,
       Orodnik
     ]
-    |> Enum.flat_map(& &1.tests())
+    |> Enum.flat_map(& &1.tasks())
   end
 
   def expected_endings(parts) do
@@ -31,5 +31,9 @@ defmodule Skloni.Tasks do
         _ -> []
       end)
     end)
+  end
+
+  def task_id(%{case: case_name, number: number, gender: gender}) do
+    {case_name, number, gender}
   end
 end
