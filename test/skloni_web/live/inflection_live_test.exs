@@ -11,14 +11,22 @@ defmodule SkloniWeb.InflectionLiveTest do
     :ok = Skloni.DB.Tables.TaskResults.create_table()
     :ok = Skloni.DB.Tables.TestResults.create_table()
 
-    :ok = :mnesia.wait_for_tables([:task_results, :test_results, :counters], 5_000)
+    :ok =
+      :mnesia.wait_for_tables(
+        [:task_results, :test_results, :counters, :users, :user_tokens],
+        5_000
+      )
+
     :ok = Mnesia.clear_table(:task_results)
     :ok = Mnesia.clear_table(:test_results)
     :ok = Mnesia.clear_table(:counters)
+    :ok = Mnesia.clear_table(:users)
+    :ok = Mnesia.clear_table(:user_tokens)
     :ok
   end
 
   test "starts a test run on click", %{conn: conn} do
+    {conn, _user} = login_and_return_user(conn)
     {:ok, view, _html} = live(conn, ~p"/")
 
     refute has_element?(view, "#inflection-answer:not([disabled])")
@@ -43,6 +51,7 @@ defmodule SkloniWeb.InflectionLiveTest do
 
     :ok = :mnesia.wait_for_tables([:test_results], 5_000)
 
+    {conn, _user} = login_and_return_user(conn)
     {:ok, view, _html} = live(conn, ~p"/")
 
     Process.flag(:trap_exit, true)

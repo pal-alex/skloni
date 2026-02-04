@@ -12,6 +12,13 @@ config :skloni,
 
 config :mnesia, dir: ~c"priv/mnesia/#{config_env()}"
 
+config :tesla, disable_deprecated_builder_warning: true
+
+config :ueberauth, Ueberauth,
+  providers: [
+    google: {Ueberauth.Strategy.Google, [default_scope: "email profile"]}
+  ]
+
 # Configure the endpoint
 config :skloni, SkloniWeb.Endpoint,
   url: [

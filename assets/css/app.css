@@ -232,6 +232,66 @@
   transform: translateY(-1px);
 }
 
+.start-btn.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.user-card {
+  background: var(--cloud);
+  border-radius: 18px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-meta {
+  display: grid;
+  gap: 8px;
+}
+
+.user-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.user-body {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(31, 29, 24, 0.12);
+  font-weight: 600;
+  color: var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(28, 24, 17, 0.12);
+}
+
+.logout-link {
+  color: var(--accent-strong);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.logout-link:hover {
+  text-decoration: underline;
+}
+
 .chat {
   display: grid;
   gap: 18px;

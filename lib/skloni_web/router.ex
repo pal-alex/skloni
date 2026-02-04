@@ -1,6 +1,8 @@
 defmodule SkloniWeb.Router do
   use SkloniWeb, :router
 
+  import SkloniWeb.UserAuth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,6 +10,7 @@ defmodule SkloniWeb.Router do
     plug :put_root_layout, html: {SkloniWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :fetch_current_user
   end
 
   pipeline :api do
@@ -17,7 +20,18 @@ defmodule SkloniWeb.Router do
   scope "/", SkloniWeb do
     pipe_through :browser
 
-    live "/", InflectionLive, :index
+    live_session :default, on_mount: SkloniWeb.UserAuth do
+      live "/", InflectionLive, :index
+    end
+  end
+
+  scope "/auth", SkloniWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+    post "/:provider/callback", AuthController, :callback
+    delete "/logout", AuthController, :delete
   end
 
   # Other scopes may use custom stacks.

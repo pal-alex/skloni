@@ -6,6 +6,8 @@ defmodule SkloniWeb.InflectionLive do
 
     socket =
       socket
+      |> assign_new(:current_user, fn -> nil end)
+      |> assign_new(:current_scope, fn -> nil end)
       |> assign(:tasks, [])
       |> assign(:task_index, 0)
       |> assign(:current_task, nil)
@@ -15,7 +17,6 @@ defmodule SkloniWeb.InflectionLive do
       |> assign(:form, form)
       |> assign(:current_test_id, nil)
       |> assign(:test_active, false)
-      |> assign(:current_scope, nil)
 
     {:ok, socket}
   end
@@ -41,9 +42,36 @@ defmodule SkloniWeb.InflectionLive do
               <div class="stat-label">Passed</div>
               <div class="stat-value">{@passed}</div>
             </div>
-            <button id="start-test" type="button" class="start-btn" phx-click="start">
+            <button
+              id="start-test"
+              type="button"
+              class={["start-btn", !@current_user && "is-disabled"]}
+              phx-click="start"
+              disabled={!@current_user}
+            >
               Start
             </button>
+          </div>
+          <div class="user-card">
+            <%= if @current_user do %>
+              <div class="user-meta">
+                <div class="user-title">{Skloni.Accounts.display_name(@current_user)}</div>
+                <div class="user-body">{@current_user.email}</div>
+                <.link href={~p"/auth/logout"} method="delete" class="logout-link">
+                  Log out
+                </.link>
+              </div>
+            <% else %>
+              <div class="user-meta">
+                <div class="user-title">Sign in to start</div>
+                <div class="user-body">
+                  Your progress and task order are saved per account.
+                </div>
+                <.link href={~p"/auth/google"} class="login-btn">
+                  Continue with Google
+                </.link>
+              </div>
+            <% end %>
           </div>
         </aside>
 
@@ -51,8 +79,16 @@ defmodule SkloniWeb.InflectionLive do
           <section id="feed" class="feed" aria-live="polite" phx-hook="ScrollFeed">
             <%= if Enum.empty?(@feed) do %>
               <div class="empty-state">
-                <div class="empty-title">No attempts yet</div>
-                <div class="empty-body">Click Start to begin your test.</div>
+                <div class="empty-title">
+                  {if @current_user, do: "No attempts yet", else: "Welcome to Skloni"}
+                </div>
+                <div class="empty-body">
+                  <%= if @current_user do %>
+                    Click Start to begin your test.
+                  <% else %>
+                    Sign in first to unlock the test and save your results.
+                  <% end %>
+                </div>
               </div>
             <% else %>
               <%= for item <- @feed do %>
@@ -118,15 +154,21 @@ defmodule SkloniWeb.InflectionLive do
                 autocomplete="off"
                 spellcheck="false"
                 placeholder={
-                  if @current_task,
+                  if @current_task && @current_user,
                     do: "Type full phrase with endings",
-                    else: "Start the test to answer"
+                    else: "Sign in to start the test"
                 }
                 phx-hook="CtrlEnterSubmit"
                 phx-debounce="300"
-                disabled={!@current_task}
+                disabled={!@current_task || is_nil(@current_user)}
               />
-              <button class="send-btn" type="submit" disabled={!@current_task}>Send</button>
+              <button
+                class="send-btn"
+                type="submit"
+                disabled={!@current_task || is_nil(@current_user)}
+              >
+                Send
+              </button>
             </.form>
           </section>
         </main>
@@ -141,11 +183,12 @@ defmodule SkloniWeb.InflectionLive do
 
   def handle_event("submit", %{"entry" => %{"answer" => answer}}, socket) do
     answer = String.trim(answer || "")
+    current_user = socket.assigns.current_user
 
-    if answer == "" or is_nil(socket.assigns.current_task) do
+    if answer == "" or is_nil(socket.assigns.current_task) or is_nil(current_user) do
       {:noreply, socket}
     else
-      user_id = Skloni.Tests.default_user_id()
+      user_id = current_user.id
       current = socket.assigns.current_task
       result = Skloni.Result.get_result(current, answer)
       correct? = result.passed
@@ -192,29 +235,35 @@ defmodule SkloniWeb.InflectionLive do
   end
 
   def handle_event("start", _params, socket) do
-    user_id = Skloni.Tests.default_user_id()
+    current_user = socket.assigns.current_user
 
-    if socket.assigns.current_test_id do
-      _ = Skloni.Tests.finish_test(socket.assigns.current_test_id)
+    if is_nil(current_user) do
+      {:noreply, put_flash(socket, :error, "Sign in with Google to start a test.")}
+    else
+      user_id = current_user.id
+
+      if socket.assigns.current_test_id do
+        _ = Skloni.Tests.finish_test(socket.assigns.current_test_id)
+      end
+
+      tasks = Skloni.Tests.build_test_tasks(user_id)
+      first_task = Enum.at(tasks, 0)
+      test_id = Skloni.Tests.start_test(user_id)
+
+      socket =
+        socket
+        |> assign(:feed, [])
+        |> assign(:total, 0)
+        |> assign(:passed, 0)
+        |> assign(:tasks, tasks)
+        |> assign(:task_index, 0)
+        |> assign(:current_task, first_task)
+        |> assign(:form, to_form(%{"answer" => ""}, as: :entry))
+        |> assign(:current_test_id, test_id)
+        |> assign(:test_active, not is_nil(first_task))
+
+      {:noreply, socket}
     end
-
-    tasks = Skloni.Tests.build_test_tasks(user_id)
-    first_task = Enum.at(tasks, 0)
-    test_id = Skloni.Tests.start_test(user_id)
-
-    socket =
-      socket
-      |> assign(:feed, [])
-      |> assign(:total, 0)
-      |> assign(:passed, 0)
-      |> assign(:tasks, tasks)
-      |> assign(:task_index, 0)
-      |> assign(:current_task, first_task)
-      |> assign(:form, to_form(%{"answer" => ""}, as: :entry))
-      |> assign(:current_test_id, test_id)
-      |> assign(:test_active, not is_nil(first_task))
-
-    {:noreply, socket}
   end
 
   defp show_phrase(parts, opts) do

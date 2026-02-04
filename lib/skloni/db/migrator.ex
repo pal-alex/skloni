@@ -8,7 +8,8 @@ defmodule Skloni.DB.Migrator do
   @compile {:no_warn_undefined, :mnesia}
 
   @migrations [
-    {20_260_203_000_000, Skloni.DB.Migrations.CreateResultsTables}
+    {20_260_203_000_000, Skloni.DB.Migrations.CreateResultsTables},
+    {20_260_204_000_000, Skloni.DB.Migrations.CreateUsersTables}
   ]
 
   def run! do

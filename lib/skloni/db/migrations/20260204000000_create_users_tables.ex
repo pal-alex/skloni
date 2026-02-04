@@ -1,10 +1,10 @@
-defmodule Skloni.DB.Migrations.CreateResultsTables do
+defmodule Skloni.DB.Migrations.CreateUsersTables do
   @moduledoc false
 
   alias Skloni.DB.Tables
 
   def up do
-    Tables.results_tables()
+    Tables.user_tables()
     |> Enum.each(fn table_module ->
       :ok = table_module.create_table()
     end)

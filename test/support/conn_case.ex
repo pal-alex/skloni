@@ -17,6 +17,10 @@ defmodule SkloniWeb.ConnCase do
 
   use ExUnit.CaseTemplate
 
+  alias Skloni.DB.Mnesia
+  alias Skloni.DB.Tables.{Counters, Users}
+  alias SkloniWeb.UserAuth
+
   using do
     quote do
       # The default endpoint for testing
@@ -33,5 +37,35 @@ defmodule SkloniWeb.ConnCase do
 
   setup _tags do
     {:ok, conn: Phoenix.ConnTest.build_conn()}
+  end
+
+  def register_user(attrs \\ %{}) do
+    now = DateTime.utc_now()
+
+    user = %Users{
+      id: Counters.next_id(:users),
+      google_sub: Map.get(attrs, :google_sub, "test-sub"),
+      email: Map.get(attrs, :email, "test@example.com"),
+      first_name: Map.get(attrs, :first_name, "Test"),
+      last_name: Map.get(attrs, :last_name, "User"),
+      avatar_url: Map.get(attrs, :avatar_url, nil),
+      locale: Map.get(attrs, :locale, "en"),
+      created_at: now,
+      last_login_at: now
+    }
+
+    :ok = Mnesia.write_struct!(user, Users)
+    user
+  end
+
+  def log_in_user(conn, user) do
+    conn
+    |> Phoenix.ConnTest.init_test_session(%{})
+    |> UserAuth.log_in_user(user)
+  end
+
+  def login_and_return_user(conn, attrs \\ %{}) do
+    user = register_user(attrs)
+    {log_in_user(conn, user), user}
   end
 end

@@ -8,7 +8,8 @@ defmodule SkloniWeb.Endpoint do
     store: :cookie,
     key: "_skloni_key",
     signing_salt: "alYkbfM6",
-    same_site: "Lax"
+    same_site: "Lax",
+    max_age: 60 * 60 * 24 * 60
   ]
 
   socket "/live", Phoenix.LiveView.Socket,

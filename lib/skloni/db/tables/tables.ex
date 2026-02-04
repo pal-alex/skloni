@@ -5,7 +5,9 @@ defmodule Skloni.DB.Tables do
     Counters,
     MigrationVersions,
     TaskResults,
-    TestResults
+    TestResults,
+    UserTokens,
+    Users
   }
 
   def system_tables do
@@ -13,6 +15,14 @@ defmodule Skloni.DB.Tables do
   end
 
   def domain_tables do
+    [TaskResults, TestResults, Users, UserTokens]
+  end
+
+  def results_tables do
     [TaskResults, TestResults]
+  end
+
+  def user_tables do
+    [Users, UserTokens]
   end
 end
