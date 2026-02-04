@@ -14,7 +14,9 @@ config :mnesia, dir: ~c"priv/mnesia/#{config_env()}"
 
 # Configure the endpoint
 config :skloni, SkloniWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [
+    host: "localhost"
+  ],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: SkloniWeb.ErrorHTML, json: SkloniWeb.ErrorJSON],
