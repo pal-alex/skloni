@@ -5,7 +5,8 @@ defmodule Skloni.Tasks do
   alias Skloni.Tests.Skloni
 
   def all_tasks do
-    Skloni.tasks()
+    # Skloni.tasks()
+    Skloni.Mnozhina.tasks()
     |> Enum.map(&Format.from_raw_task/1)
   end
 
